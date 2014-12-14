@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel='icon' href='/images/img/favicon.ico' mce_href='/images/img/favicon.ico' type='image/x-icon'>
+  <link rel="stylesheet" href="/stylesheets/base.css">
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <link rel="stylesheet" href="/stylesheets/footer.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/jquery.pagepiling.css" />
+  <script src="/javascripts/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="/javascripts/jquery.pagepiling.js"></script>
+</head>
+<style>
+  .check{
+      width: 800px;
+      font-size: 30px;
+      letter-spacing: 5px;
+      /*line-height: 85px;*/
+      position: relative;
+      right: -1800px;
+      /*-webkit-transition: all 0.3s ease-in-out;*/
+      -webkit-animation: huadong 1s;
+    }
+  @-webkit-keyframes huadong{
+      from{
+         right: -1800px;
+      }
+      to{
+        right: 0;
+      }
+  }
+    
+</style>
+<body><div id="pagepiling">
+    <div class="section blockList">
+        <ul id="blockList">
+        <li id='list_1'>
+          <h6>欢迎来到<span>五瓣丁香</span></h6>
+          <a href="/login" class='login btn'>登陆</a>
+          <a href="/reg" class='reg btn'>注册</a>
+        </li>
+        <li id='list_2'>
+          <div class='agentDetail'>
+            <span>站长：张**</span><br>
+            <span>职业：<a href="">前端工程师</a></span><br>
+            <span>毕业院校：<a href="">黑龙江大学</a></span><br>
+            <span>家乡：<a href="">美丽的冰城</a></span><br>
+            <a href="" class='knowMore btn'>了解站长</a>
+          </div>
+        </li>
+        
+        <li id='list_3'><div class="chatRoom">
+          <h3>畅想聊天室</h3>
+          <span>在这里你可以多人在线聊天</span><br>
+          <span>基于Node平台实现</span>
+          <a href="" class='knowChat btn'>了解详情</a>
+          <a href="" class='toChat btn'>进入聊天室</a>
+        </div></li>
+        <li id='list_4'><div class='harbin'>
+          <h1>哈尔滨</h1>
+          <h2>一座美丽的城市</h2>
+          <a href="/toHarbin" class='toHarbin btn'>走进哈尔滨</a>
+        </div></li>
+        <li><div class='coming'>coming on</div></li>
+        <li><div class='coming'>coming on</div></li>
+        <li><div class='coming'>coming on</div></li>
+        <li><div class='coming'>coming on</div></li>
+        <li><div class='coming'>coming on</div></li>
+        </ul>
+    </div>
+      <div class="section firsh">
+         <div id="container">
+      <div class="left"><img src="/images/img/logo_index.png" alt=""></div>
+      <div class="right">
+        <div class="right_top">
+
+        <!-- <img src="/images/img/banner.png" alt=""> -->
+        <div id="rightT">
+          <div class="cube two"><img src="/images/img/banner.png" alt=""></div>
+          <div class="cube three"><img src="/images/img/banner.png" alt=""></div>
+          <div class="cube four"><img src="/images/img/banner.png" alt=""></div>
+          <div class="cube five"><img src="/images/img/banner.png" alt=""></div>
+        </div>
+  
+        </div>
+        <div class="right_bottom"><ul class='r_list'>
+          <li><a href="">当一万+天使涌现，当BAT发力，早期机构何为？</a></li>
+          <li><a href="">揭秘李开复背后的“投后管理大牛”</a></li>
+          <li><a href="">钢琴业“搅局者”壹枱：人人都会弹钢琴</a></li>
+        </ul></div>
+      </div>
+    </div>
+    <% include nav.ejs %>
+   
+      <% include footer.ejs %>
+      </div>
+
+    <div class="section checkDiv">
+      <div class="check"><h1>
+        自己选择的路<br>再艰难， 跪着也要走下去</h1>
+      </div>
+    </div>
+   
+    <div class="section"><img src="/images/img/bg3.jpg" alt=""></div>
+    <div class="section"><img src="/images/img/bg4.jpg" alt=""></div>
+    <div class="section"><img src="/images/img/bg5.jpg" alt=""></div>
+    <div class="section"><img src="/images/img/bg1.jpg" alt=""></div>
+  </div>
+  <script>
+    $(document).ready(function() {
+        $('#pagepiling').pagepiling();
+    });
+  </script>
+</body>
+<script src="/javascripts/seajs/sea.js" data-config="/javascripts/seajs-config.js" data-main="/javascripts/index.js" ></script>
+</html>

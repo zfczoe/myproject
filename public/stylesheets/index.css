@@ -1,0 +1,344 @@
+#container{
+	width: 100%;
+	height: 485px;
+	background-color: #fff;
+}
+.firshIndex{
+	background-color: #fff;
+}
+#container .left{
+	width: 50%;
+	height: 450px;
+	float: left;
+	position: relative;
+}
+#container .left img{
+	width: 314px;
+	height: 127px;
+	position: absolute;
+	bottom: 30%;
+	right: 30%;
+}
+#container .right{
+	width: 50%;
+	height: 450px;
+	float: left;
+}
+#container .right .right_top{
+	width: 80%;
+	height: 40%;
+	margin-top: 10%;
+}
+ .r_list{
+ 	margin-top: 10%;
+ }
+#container .right .right_bottom{
+	width: 80%;
+	height: 30%;
+ 	margin-top: 5%;
+}
+#container .right .right_bottom .r_list li{
+	line-height: 2em;
+}
+/*.check{
+	width: 800px;
+	margin: 0 auto;
+	font-size: 30px;
+	letter-spacing: 5px;
+	line-height: 85px;
+}*/
+.section{
+	background-color: #fff;
+}
+.checkDiv{
+	background-color: #868E84;
+}
+
+
+/*立方体动画*/
+ .right_top{
+      -webkit-perspective: 2000px;
+      -moz-perspective: 2000px;
+      -ms-perspective: 2000px;
+      -o-perspective: 2000px;
+      -webkit-perspective-origin: 50% 125px;
+      -moz-perspective-origin: 50% 125px;
+      -ms-perspective-origin: 50% 125px;
+      -o-perspective-origin: 50% 125px;
+    }
+    #rightT{
+      width: 400px;
+      position: relative;
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      -o-transform-style: preserve-3d;
+     -webkit-animation: xxx 10s linear infinite;
+     -moz-animation: xxx 20s linear infinite;
+     -ms-animation: xxx 20s linear infinite;
+     -o-animation: xxx 20s linear infinite;
+     
+/*            overflow: hidden;*/
+   }
+        /*@-webkit-keyframes xxx{
+            from{
+               -webkit-transform: rotateY(0); 
+            }
+            to{
+              -webkit-transform: rotateY(-360deg); 
+            }
+        }*/
+        @-webkit-keyframes xxx{
+            0%{
+              -webkit-transform: rotateY(0); 
+            }
+            20%{
+              -webkit-transform: rotateY(-90deg); 
+            }
+            25%{
+              -webkit-transform: rotateY(-90deg); 
+            }
+            45%{
+              -webkit-transform: rotateY(-180deg); 
+            }
+            50%{
+              -webkit-transform: rotateY(-180deg); 
+            }
+            70%{
+              -webkit-transform: rotateY(-270deg); 
+            }
+            75%{
+              -webkit-transform: rotateY(-270deg); 
+            }
+            90%{
+              -webkit-transform: rotateY(-360deg);  
+            }
+            100%{
+              -webkit-transform: rotateY(-360deg); 
+            }
+        }
+        @-moz-keyframes xxx{
+            from{
+               -moz-transform: rotateY(0); 
+            }
+            to{
+              -moz-transform: rotateY(-360deg); 
+            }
+        }
+        @-ms-keyframes xxx{
+            from{
+               -ms-transform: rotateY(0); 
+            }
+            to{
+              -ms-transform: rotateY(-360deg); 
+            }
+        }
+        @-o-keyframes xxx{
+            from{
+               -o-transform: rotateY(0); 
+            }
+            to{
+              -o-transform: rotateY(-360deg); 
+            }
+        }
+    .cube{
+      width: 400px;
+      height: 150px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid #fff;
+      font: bold 124pt/200px "Times New Roman", Times, serif;
+      color: #000;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0.7;
+    }
+    .four{
+        -webkit-transform: scale3d(1.2,1.2,1.2) rotateY(180deg) translateZ(200px);
+        -moz-transform: scale3d(1.2,1.2,1.2) rotateY(180deg) translateZ(200px);
+        -ms-transform: scale3d(1.2,1.2,1.2) rotateY(180deg) translateZ(200px);
+        -o-transform: scale3d(1.2,1.2,1.2) rotateY(180deg) translateZ(200px);
+    }
+    .three{
+        -webkit-transform: scale3d(1.2,1.2,1.2) rotateY(90deg) translateZ(200px);
+        -moz-transform: scale3d(1.2,1.2,1.2) rotateY(90deg) translateZ(200px);
+        -ms-transform: scale3d(1.2,1.2,1.2) rotateY(90deg) translateZ(200px);
+        -o-transform: scale3d(1.2,1.2,1.2) rotateY(90deg) translateZ(200px);
+    }
+    .five{
+        -webkit-transform: scale3d(1.2,1.2,1.2) rotateY(-90deg) translateZ(200px);
+        -moz-transform: scale3d(1.2,1.2,1.2) rotateY(-90deg) translateZ(200px);
+        -ms-transform: scale3d(1.2,1.2,1.2) rotateY(-90deg) translateZ(200px);
+        -o-transform: scale3d(1.2,1.2,1.2) rotateY(-90deg) translateZ(200px);
+    }
+    .two{
+        -webkit-transform: scale3d(1.2,1.2,1.2) translateZ(200px);
+        -moz-transform: scale3d(1.2,1.2,1.2) translateZ(200px);
+        -ms-transform: scale3d(1.2,1.2,1.2) translateZ(200px);
+        -o-transform: scale3d(1.2,1.2,1.2) translateZ(200px);
+    }
+
+/*动画结束*/
+
+
+/*9*9 start*/
+.coming{
+  width: 90%;
+  margin: 0 auto;
+  font-size: 35px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  top: 38%;
+}
+.blockList{
+  background-color: #000000;
+}
+#blockList{width: 930px; height: 630px;margin: 0 auto; position: relative;}
+#blockList li{width: 300px; height: 200px; float: left; overflow: hidden; margin: 5px;
+  background-color: #121212;
+}
+#blockList img{width: 300px; height: 200px;}
+#blockList li.on{
+  opacity: 0.5;
+}
+#blockList li:hover{
+  cursor: pointer;
+}
+#list_1 h6{
+  font-size: 50px;
+  text-indent: 15px;
+  height: 110px;
+  position: relative;
+  color: rgb(75, 79, 155);
+}
+#list_1 h6 span{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 35px;
+  padding: 5px;
+  color: rgb(6, 87, 0);
+}
+.btn{
+  float: left;
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 35px;
+  transition: all .3s ease;
+}
+#list_1 a:hover{
+  text-decoration: none;
+  border: 1px solid #ccc;
+  color: #333333;
+  background-color: #ccc;
+}
+#list_1 .login{
+  border: 1px solid #fff;
+  color: #fff;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+#list_1 .reg{
+  border: 1px solid #fff;
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+#list_2{
+  font-size: 16px;
+  color: #fff;
+}
+#list_2 .agentDetail{
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+#list_2 .agentDetail span{
+  float: left;
+  height: 25px;
+}
+#list_2 .knowMore{
+  border: 1px solid #563A3A;
+  color: #000;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background-color: #747373;
+
+}
+#list_2 .knowMore:hover{
+  text-decoration: none;
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid #fff;
+}
+#list_3 .chatRoom{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+#list_3 .chatRoom h3{
+  color: green;
+}
+#list_3 .chatRoom span{
+  float: left;
+  font-size: 16px;
+  color: #fff;
+  line-height: 30px;
+}
+.knowChat{
+  border: 1px solid #fff;
+  color: #fff;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+.toChat{
+  border: 1px solid #fff;
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+.toHarbin{
+  border: 1px solid #fff;
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+#list_3 a:hover{
+  text-decoration: none;
+  border: 1px solid #ccc;
+  color: #333333;
+  background-color: #ccc;
+}
+#list_4 .harbin{
+  padding: 20px;
+}
+#list_4 .harbin h1{
+  color: blue;
+}
+#list_4 .harbin h2{
+  color: green;
+  text-indent: 50px;
+  margin-top: 15px;
+}
+/*9*9 end*/
+
+.navbar .index{
+  background-color: #292929;
+  border-radius: 50px;
+}
+.navbar .index a{
+  color: #F90;
+}
+
+

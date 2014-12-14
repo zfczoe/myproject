@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheets/basic.css">
+</head>
+<body>
+    <div class="noteBox"><span>*</span>
+                    为必填，完整的资料会为你带来更多关注<br>
+    如实填写行业、教育和工作等信息，能帮你找到微博里的同行、同学和同事。
+    </div>
+    <form class='rightForm'>
+        <table>
+            <tbody>
+                <tr>
+                    <th>用户名： </th>
+                    <td class='name'><%= (loginUser==null ? "" : loginUser.username) %></td>
+                </tr>
+                <tr>
+                    <th><span>*</span>姓名： </th>
+                    <td>
+                        <input type="text" name="realName" value='<%= (!loginUser.realname ? "" : loginUser.realname) %>'>
+                      <!--   <div >1-12个中文、字母、数字、下划线或减号</div> -->
+                    </td>
+                </tr>
+                <tr>
+                    <th><span>*</span>性别：</th>
+                    <td>
+                        <%
+                            if(loginUser != null && loginUser.gender == 1){
+                                %>
+                        <input name="gender" id="gender" type="radio" value="2">
+                        <b class="pass" style="display:none"></b><b></b> 
+                        <label for="gender">女</label>&nbsp;&nbsp;
+                        <input name="gender" id="gender2" type="radio" value="1" checked=""> <label for="gender2">男</label><b></b>
+                                <%
+                            }else if( loginUser != null && loginUser.gender == 2 ){
+                                %>
+                        <input name="gender" id="gender" type="radio" value="2" checked="">
+                        <b class="pass" style="display:none"></b><b></b> 
+                        <label for="gender">女</label>&nbsp;&nbsp;
+                        <input name="gender" id="gender2" type="radio" value="1" > <label for="gender2">男</label><b></b>
+                                <%
+                            }else{
+                                %>
+                        <input name="gender" id="gender" type="radio" value="2">
+                        <b class="pass" style="display:none"></b><b></b> 
+                        <label for="gender">女</label>&nbsp;&nbsp;
+                        <input name="gender" id="gender2" type="radio" value="1" > <label for="gender2">男</label><b></b>
+                                <%
+                            }
+                        %>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <th>常用邮箱：</th>
+                    <td>
+                        <input id="email" name="email" type="text" class="inputTxt en" value='<%= (loginUser==null ? "" : loginUser.email) %>'><b class="pass" style="display:none"></b> <span></span><br>
+                       <!--  <span class="cNote">常用邮箱仅用来接收微博活动或通知邮件，不会公开显示</span></td> -->
+                </tr>
+                <tr>
+                    <th>个人简介：</th>
+                    <td>
+                        <textarea id="personInfo" name="personInfo" type="text"><%= (loginUser==null ? "" : loginUser.personInfo) %></textarea>
+                       <!--  <span class="cNote">常用邮箱仅用来接收微博活动或通知邮件，不会公开显示</span></td> -->
+                </tr>
+                <tr>
+                    <th><div id='baocun' class='sub_t'>保存</div></th>
+                    <td><div id='quxiao' class='sub_t'>取消</div></td>
+                </tr>
+              
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
+

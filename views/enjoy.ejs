@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title><%= title %></title>
+    <link rel='icon' href='/images/img/favicon.ico' mce_href='/images/img/favicon.ico' type='image/x-icon'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/enjoy.css"> 
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+</head>
+<body>
+   <% include headTop.ejs %>
+   <% include nav.ejs %>
+   <div class="headerTop">
+     <img src="/images/img/logo_index.png" alt="">
+     <ul class="list">
+      <li><a href="#login">登陆</a></li><span>|</span>
+      <li><a href="#reg">注册</a></li><span>|</span>
+      <li><a href="#suggest">反馈建议</a></li>
+     </ul>
+     <ul id="information">
+      <li id='login'>
+        <div class='tanCenter'><h3>登陆</h3>
+          <form id="" class="form-horizontal" method="post" action='/login'>
+             <div class="control-group">
+              <label class="control-label" for="inputPassword">用户名</label>
+              <div class="controls">
+                <input type="text" id="inputUsername" class="required loginName" value="" name="username"><span class="noReg"></span>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputPassword">密码</label>
+              <div class="controls">
+                <input type="password" id="inputPassword" class="required" name="password"><span class="noRegPassword"><%= (noReg == null ? "" : noReg) %></span>
+              </div>
+            </div>
+                <div class="control-group">
+                  
+              <div class="controls">
+                <button type="submit" class="btn btn-success">登陆</button>
+              </div>
+            </div>
+          </form>
+          <a href="#" class='close'>X</a>
+        </div>
+      </li>
+      <li id='reg'>
+        <div class='tanCenter'><h3>注册</h3>
+         <form id="myform" class="form-horizontal" method="post" action='/reg'>
+             <div class="control-group">
+              <label class="control-label" for="inputPassword">用户名</label>
+              <div class="controls">
+                <input type="text" id="inputUsername" class="required regName" name="username" placeholder=""><span class="noReg"></span>
+                <p style='font-size:12px;height:0px;color:#ccc;'><span style='color:red;'>注意：</span>中文、英文、数字、下划线、4-16个字符</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">邮箱</label>
+              <div class="controls">
+                <input type="text" id="inputEmail" class="required email error" name="email" placeholder="请输入正确的邮箱">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputPassword" >密码</label>
+              <div class="controls">
+                <input type="password" id="inputPassword" class="required" name="password" placeholder="长度为6-16个字符">
+              </div>
+            </div>
+              <div class="control-group">
+                <label class="control-label" for="password-repeat">重复口令</label> <div class="controls">
+                <input type="password" class="required" id="repassword" name="repassword" placeholder="请输入和上面相同的密码">
+                  </div>
+                </div>
+                <div class="control-group show_error">
+                  <span class='show_error'></span>
+                </div>
+            <div class="control-group">
+              <div class="controls">
+                <label class="checkbox">
+                  <input type="checkbox">我已经认真阅读并同意---的《使用协议》。
+                </label>
+                <button type="submit" class="btn btn-success">注册</button>
+              </div>
+            </div>
+          </form>
+          <a href="#" class='close'>X</a>
+        </div>
+      </li>
+      <li id='suggest'>
+        <div class='tanCenter'><h3>反馈建议</h3>
+          <form id="" class="form-horizontal" method="post" action='/addSuggest'>
+             <div class="control-group">
+              <label class="control-label" for="inputPassword">来个匿名吧</label>
+              <div class="controls">
+                <input type="text" id="inputUsername" class="required" name='suggestName'>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">反馈内容</label>
+              <div class="controls">
+                <textarea name="suggestContent" id="" cols="60" rows="10"></textarea>
+              </div>
+            </div>
+                <div class="control-group">
+                  
+              <div class="controls">
+                <button type="submit" class="btn btn-success suggestBtn">提交</button>
+              </div>
+            </div>
+          </form>
+          <a href="#" class='close'>X</a>
+        </div>
+      </li>
+      <ul>
+   </div>
+
+    <div id="container_enjoy">
+      <ul class="enjoyNavBar">
+        <li><a href="">新年快乐</a></li>
+        <li><a href="">恭喜发财</a></li>
+        <li><a href="">万事大吉</a></li>
+        <li><a href="">逆天的存在</a></li>
+      </ul>
+      <div class="roolImg">
+        <a href="">
+          <div class="bigImg" style="background-image: url('/images/img/1.png');background-size: 100% 100%;">
+            
+          </div></a>
+        <div class="bigBottom">
+          <ul class='imgList'>
+            <li class='firstImg'><img src="/images/img/1.png" alt=""></li>
+            <li class='secondImg'><img src="/images/img/2.png" alt=""></li>
+            <li class='thirdImg'><img src="/images/img/3.png" alt=""></li>
+            <li class='fourImg'><img src="/images/img/4.png" alt=""></li>
+            <li class='fiveImg'><img src="/images/img/5.png" alt=""></li>
+          </ul>
+        </div>
+      </div>
+     
+      	
+     <div class='contentText'>
+       <div class="conLeft">
+         <div class="conLeftBlock">
+           <ul class="hotNew">
+           <h3>热门新闻</h3>
+             <li><a href="">14914-品牌总监（深圳）</a></li>
+             <li><a href="">14914-集团品牌管理</a></li>
+             <li><a href="">MIG16-汽车后服务产品副...</a></li>
+             <li><a href="">MIG06-高级产品策划经</a></li>
+             <li><a href="">MIG06-腾讯开放平台</a></li>
+             <li><a href="">15456-智能硬件产品总监</a></li>
+             <li><a href="">MIG06-IOS终端开发工...</a></li>
+             <li><a href="">SD5-QQ游戏赛事运营</a></li>
+             <li><a href="">SD5-QQ游戏平台产品</a></li>
+             <li><a href="">15569-新手游移</a></li>
+           </ul>
+         </div>
+         <div class="conRightBlock">
+           <ul class="hotNew">
+           <h3>热门新闻</h3>
+             <li><a href="">14914-品牌总监（深圳）</a></li>
+             <li><a href="">14914-集团品牌管理</a></li>
+             <li><a href="">MIG16-汽车后服务产品副...</a></li>
+             <li><a href="">MIG06-高级产品策划经</a></li>
+             <li><a href="">MIG06-腾讯开放平台</a></li>
+             <li><a href="">15456-智能硬件产品总监</a></li>
+             <li><a href="">MIG06-IOS终端开发工...</a></li>
+             <li><a href="">SD5-QQ游戏赛事运营</a></li>
+             <li><a href="">SD5-QQ游戏平台产品</a></li>
+             <li><a href="">15569-新手游移</a></li>
+           </ul>
+         </div>
+       </div>
+       <div class="conRight">
+         <ul class="conRightNew">
+          <h1>棒棒的！！！</h1>
+        <!--  <h3>最新动态</h3>
+           <li><a href="">敢，你就来！——枪神纪产品中心诚聘英才</a></li>
+           <li><a href="">腾讯智能玩具互动游戏项目火热招聘</a></li> -->
+         </ul>
+         <div class="video">
+            <video id='myVideo' autoplay="autoplay" controls="controls" width='100%' height='100%'>
+            <source src='/video/ai.mp4'/>
+            <!-- <source src='1.webm' type='video/webM' />
+            <source src='1.ogv' type='video/ogg' /> -->
+            <p>Your browser does not support the video tag.</p>
+            </video>
+         </div>
+       </div>
+     </div>
+    <div class="contentBottom">
+      
+    </div>
+    </div> <!--  #container_blog -->
+    <div id="screenBottom">
+    <div class='bottomContent'>我的网站我做主</div>
+    <a href="javascript:;" class='clickTop'>^</a>
+    <a href="javascript:;" class='clickX'>x</a>
+    
+    </div>
+    <div class="bottomTopContent">   <!--   bottomTopContent start -->
+       <div class="bottomTopContent_list bottomTopContent_listFirst">
+       <h3>特效欣赏</h3>
+        <ul class='list'>
+          <li><a href="/effect?flag=rotateImg" target="_blank">旋转合并的图片墙</a></li>
+          <li><a href="/effect?flag=dice" target="_blank">骰子</a></li>
+          <li><a href="/effect?flag=5circle" target="_blank">五环</a></li>
+          <li><a href="/effect?flag=flowImg" target="_blank">瀑布流</a></li>
+          <li><a href="/effect?flag=fire" target="_blank">烈火</a></li>
+          <li><a href="/effect?flag=3dShow" target="_blank">3D展示</a></li>
+          <li><a href="/effect?flag=rain1" target="_blank">窗户玻璃雨滴逼真效果</a></li>
+          <li><a href="/effect?flag=rain2" target="_blank">逼真全屏雨滴插件</a></li>
+        </ul> 
+      </div>
+      <div class="bottomTopContent_list">
+       <h3>网站及插件导航</h3>
+        <ul class='list'>
+         <li><a href="http://cli.im/" target="_blank">草料文本二维码生成器</a></li>
+         <li><a href="http://mp.weixin.qq.com" target="_blank">微信公众平台</a></li>
+         <li><a href="http://www.atool.org/" target="_blank">在线工具</a></li>
+         <li><a href="http://fex.baidu.com/webuploader/" target="_blank">webuploader(百度上传组件)</a></li>
+         <li><a href="http://www.hcharts.cn/index.php" target="_blank">Highcharts(纯js图表库)</a></li>
+         <li><a href="http://docs.kissyui.com/5.0/" target="_blank">KISSY(阿里 JavaScript 框架)</a></li>
+         <li><a href="http://www.zhangxinxu.com/wordpress/" target="_blank">鑫空间鑫生活(技术博客)</a></li>
+         <li><a href="http://www.w3.org/TR/2014/REC-html5-20141028/" target="_blank">W3C HTML5</a></li>
+         <li><a href="http://nodejs.org/" target="_blank">Nodejs</a></li>
+         <li><a href="http://www.mongodb.org/" target="_blank">Mongodb</a></li>
+         <li><a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a></li>
+         <li><a href="http://www.express.com/" target="_blank">Express</a></li>
+         <li><a href="http://cn.wordpress.org/" target="_blank">Wordpress(中文版)</a></li>
+         <li><a href="http://backbonejs.org/" target="_blank">Backbonejs</a></li>
+         <li><a href="http://www.css3train.com/handbook/" target="_blank">CSS3手册</a></li>
+         <li><a href="http://www.jqmapi.com/" target="_blank">Jquery mobile 中文站</a></li>
+        </ul> 
+      </div>
+
+      <div class="bottomTopContent_list">
+       <h3>网络安全</h3>
+        <ul class='list'>
+          <li><a href="http://www.hackbase.com" target="_blank">黑基-hackbase</a></li>
+          <li><a href="http://www.chinahacker.com" target="_blank">中国黑客联盟</a></li>
+         <!--  <li><a href="http://www.wooyun.org" target="_blank">WooYun.org | 自由平等开放的漏洞报告平台</a></li> -->
+          <li><a href="http://www.freebuf.com/" target="_blank">黑客与极客</a></li>
+         <li><a href="http://" target="_blank"></a></li>
+         <li><a href="http://" target="_blank"></a></li>
+         <li><a href="http://" target="_blank"></a></li>
+         <li><a href="http://" target="_blank"></a></li>
+         <li><a href="http://" target="_blank"></a></li>
+          
+        </ul> 
+        <h3>算法</h3>
+        <ul class='list'>
+         <li><a href="http://acm.hdu.edu.cn/" target="_blank">杭电OJ</a></li>
+         <li><a href="http://poj.org/" target="_blank">北京大学</a></li>
+          
+        </ul> 
+      </div>
+
+
+      <div class="bottomTopContent_list">
+       <h3>名企招聘</h3>
+        <ul class='list'>
+          <li><a href="http://www.hackbase.com" target="_blank">阿里招聘</a></li>
+          <li><a href="http://www.chinahacker.com" target="_blank">百度招聘</a></li>
+          <li><a href="http://www.wooyun.org" target="_blank">腾讯招聘</a></li>
+          <li><a href="http://www.freebuf.com/" target="_blank">58 招聘</a></li>
+          <li><a href="http://www.freebuf.com/" target="_blank">去哪招聘</a></li>
+          <li><a href="http://www.freebuf.com/" target="_blank">360 招聘</a></li>
+          <li><a href="http://www.freebuf.com/" target="_blank">大街网</a></li>
+         <li><a href="http://www.lagou.com/" target="_blank">拉勾网</a></li>
+         <li><a href="http://" target="_blank"></a></li>
+         <li><a href="http://" target="_blank"></a></li>
+         <li><a href="http://" target="_blank"></a></li>
+         <li><a href="http://" target="_blank"></a></li>
+
+          
+        </ul> 
+      </div>
+     
+    <a href="javascript:;" class='clickTopX'>x</a>
+    </div>   <!-- bottomTopContent end -->
+     <% include footer.ejs %>
+     
+    <script src="/javascripts/seajs/sea.js" 
+                data-config="/javascripts/seajs-config.js" 
+                data-main="/javascripts/enjoy.js" >
+    </script>
+    <script src='/javascripts/jquery-1.10.2.min.js'></script>
+    <script src="/javascripts/highcharts/highcharts.js"></script>
+    <script src="/javascripts/highcharts/modules/exporting.js"></script> 
+</body>
+</html>

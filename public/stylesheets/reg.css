@@ -1,0 +1,17 @@
+.logo{
+	margin: 30px auto;
+}
+.form-horizontal .control-label{
+	width: 80px;
+}
+.form-horizontal .controls{
+	margin-left: 90px;
+}
+.show_error{
+	color: red;
+	padding-left: 100px;
+}
+.noReg{
+	color: red;
+	text-indent: 3px;
+}

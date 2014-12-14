@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title><%= title %></title>   <!-- 个人中心 基本信息 -->
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/personCenter.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+</head>
+<body>
+    <% include headTop.ejs %>
+    <% include nav.ejs %>
+    <div id="container_person">
+        <% include left_person.ejs %>
+        <div class="right_person">
+            
+            <% include basic.ejs %>
+        </div>
+        
+        
+    </div>
+
+    <% include footer.ejs %>
+    <script src="/javascripts/seajs/sea.js" 
+                data-config="/javascripts/seajs-config.js" 
+                data-main="/javascripts/personCenterBasic.js" >
+    </script>
+</body>
+</html>
+

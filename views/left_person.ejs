@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="left_person">
+    <div class="leftList">
+        <a href="/resetHead"><img class='personHead'  src="<%= (loginUser==null ? "" : loginUser.headurl) %>" alt=""></a>
+        <ul class='leftR'>
+            <li><a href=""><%= loginUser.realname ? loginUser.realname : '蛋蛋'%></a></li>
+          
+            <li><a href="">写心情</a></li>
+            <li><a href="/writeBlog">写博客</a></li>
+        </ul>
+    </div>
+    <div class="leftList">
+        <div class="listCon">
+            <h2>个人资料</h2>
+           <ul>
+               <li class='select'><a href="/personCenterBasic">基本信息</a></li>
+               <li><a href="/resetHead">修改头像</a></li>
+               <li><a href="/addBlogSort">添加分类</a></li>
+               <li><a href="">教育信息</a></li>
+               <li><a href="">个人标签</a></li>
+               <li><a href="">绑定手机</a></li>
+           </ul>
+        </div>
+    </div>
+    <div class="leftList">
+        <div class="listCon">
+             <h2>隐私设置</h2>
+            <ul>
+               <li><a href="/personCenterResetPwd">修改密码</a></li>
+               <li><a href="">权限设置</a></li>
+               <li><a href="">同步设置</a></li>
+           </ul>
+        </div>
+       
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/stylesheets/addBlogSort.css">
+</head>
+<body>
+  	已有分类：
+  	<div class='oldSort'>
+		<%= success %>
+		<% for(var i=0; i< posts.length; i++){%>
+			<p><%= posts[i].sortName %></p>
+		<% } %>
+  	</div>
+  	<form action="/addBlogSort" method="post">
+  		<input type="text" name="addBlogSort"><input type="submit" value = '添加'>
+  	</form>
+  	
+</body>
+</html>

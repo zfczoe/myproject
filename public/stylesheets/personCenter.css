@@ -1,0 +1,64 @@
+#container_person .left_person{
+	width: 250px;
+	float: left;
+	padding: 5px;
+	margin: 20px;
+	background-color: #E3E2EB;
+	border-radius: 5px;
+}
+#container_person .right_person{
+	margin-left: 300px;
+	height: 600px;
+	margin-top: 20px;
+	padding: 30px 20px;
+	/*background-color: #F4F4FA;*/
+	border-radius: 5px;
+}
+.leftR{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	background-color: #9CD5E4;
+}
+.leftR li{
+	width: 33%;
+	float: left;
+	
+}
+.leftR li a{
+	width: 100%;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+.leftList{
+	width: 80%;
+	margin: 0 auto;
+	padding: 5%;
+	margin-top: 10px;
+	border: #dae6c3 1px solid;
+	font: 12px/1.75 Tahoma,Arial,sans-serif;
+}
+.leftList ul li{
+	line-height: 2em;
+	text-align: center;
+	color: #2B4A78!important;
+}
+.personHead{
+	width: 150px;
+	height: 180px;
+	border-radius: 5px;
+	padding: 2px;
+	border: 2px solid #CACACA;
+}
+.listCon{
+	width: 50%;
+	margin: 0 auto;
+}
+.select{
+	background-color: #fff;
+}
+.select a{
+	color: #000;
+}

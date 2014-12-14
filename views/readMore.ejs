@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title><%= title %></title>
+    <link rel='icon' href='/images/img/favicon.ico' mce_href='/images/img/favicon.ico' type='image/x-icon'>
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/blog.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/readMore.css">
+</head>
+<body>
+   <% include headTop.ejs %>
+   <% include nav.ejs %>
+    <div id="blog_header">
+     <% 
+        if(flag==null){
+            %>
+            <a href="">
+                天下博文
+            </a>
+            <%
+        }else{
+            %>
+            <a href="">
+                <%= user.username %>的文章
+            </a>
+            <%
+        }
+
+    %>
+    <span id="timeOver"></span>
+    <span id="time"></span>
+    </div>
+    <div id="container_blog">
+        <% include blog_right.ejs %>
+        <div class="left_blog">
+            <div class="contentRead">
+                <div class="article">
+                    <h2><%= post.title%></h2>   
+                    <small>
+                        <span><%= post.addTime%></span> by <a href="/toAuthor?author=<%= post.author.username%>"><span><%= post.author.username%></span></a>
+                        阅读<%= post.readCount %>次，今日6次
+                    </small><br>
+                    <p class='p'><%= post.content%></p><br>
+                </div>
+                <ul>
+                <p class='allComment'>全部评论(<%= comments.length%>)</p>
+                <% for(var i=0; i<comments.length; i++){%>
+                    <li class='comment'>
+                        <%if(comments[i].commentPerson){%>
+                            <img src="<%= comments[i].commentPerson.headurl%>" alt="" class='comPerson'>
+                            <div class="commentWrapper">
+                            <span class='commentAuthor'><%= comments[i].commentPerson.username %></span><br>
+                            <span class='commentMeta'><%= comments[i].addTime %></span>
+                            <p><%= comments[i].content %></p>
+                        </div>
+                        <%}else{%>
+                            <img src="/images/img/nimingtouxiang.jpg" alt="" class='comPerson'>
+                            <div class="commentWrapper">
+                            <span class='commentAuthor'><%= comments[i].commentPersonN %></span><br>
+                            <span class='commentMeta'><%= comments[i].addTime %></span>
+                            <p><%= comments[i].content %></p>
+                        </div>
+                        <%} %>
+                    </li>
+                <%}%>
+                </ul>
+                <div class="commentForm">
+                快来评论吧-> <br>
+                <% if(loginUser){%>  <!-- 已登陆 -->
+                    <form>
+                        <input type="hidden" name='commentName'>
+                        <input type="hidden" name='oBlog' value='<%= post.title%>'>
+                        <textarea name="comment" class="textarea" ></textarea><br>
+                        <div class="commentSub">提交</div>
+                    </form>
+                <%}else{%>      <!-- 匿名评论 -->
+                    <form action="/addComment" method="post">
+                        <strong style='color: #444;'>匿名：</strong><input type="text" name='commentName'><br><br>
+                        <textarea name="comment" class="textarea" ></textarea><br>
+                        <input type="hidden" name='oBlog' value='<%= post.title%>'>
+                        <input type="submit" class='commentSub'>
+                    </form>
+                <%}%>
+                </div>
+            </div>
+        </div>
+       
+    </div> <!--  #container_blog -->
+     <% include footer.ejs %>
+    <script src="/javascripts/seajs/sea.js" 
+                data-config="/javascripts/seajs-config.js" 
+                data-main="/javascripts/readMore.js" >
+    </script>
+</body>
+</html>

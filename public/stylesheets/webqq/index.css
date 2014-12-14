@@ -1,0 +1,140 @@
+*{
+	margin: 0; padding: 0;
+}
+ul{list-style: none;}
+img{border: 0;}
+a{text-decoration: none;}
+#wallpaper img{
+	width: 100%;
+	height: 100%;
+}
+#leftbar{
+	width: 73px;
+	height: 576px;
+	background: url(../../images/webqq/dock_l.png) no-repeat;
+	position: fixed;
+	left: 0;
+	top: 50px;
+}
+#leftbar .app-button{
+	margin: 2px 3px 2px 4px;
+	padding: 0;
+	width: 58px;
+	height: 58px;
+}
+#leftbar .app-button:hover{
+	cursor: pointer;
+	background: url(../../images/webqq/appbutton_mouseover.png) no-repeat;
+}
+#leftbar .app-items{
+	margin-top: 8px;
+}
+#leftbar .app-button img{
+	width: 48px;
+	height: 48px;
+	padding: 5px 0 0 5px;
+}
+.dialog-container{
+	width: 500px;height: 350px;
+	position: absolute;left: 200px;top: 100px;
+	border-radius: 5px 5px 0 0;
+	border: 1px solid #999;
+	background-color: #E9E9E9;
+}
+.dialog-container-hide{
+	display: none;
+}
+.dialog-resizebar{
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	cursor: se-resize;
+}
+.dialog-title{
+	height: 25px;
+	border-radius: 5px 5px 0 0;
+	background: url(../../images/webqq/sprite_repeat.png);
+	cursor: move;
+}
+.dialog-title-text{
+	float: left;
+}
+.dialog-right-top{
+	overflow: hidden;
+	right: 2px;
+	position: absolute;
+	top: 4px;
+	width: 65px;
+	height: 20px;
+	
+}
+.btn{
+	float:left;outline: none;width: 20px;height: 20px;text-indent: -9999em;background-position: 0 -192px; 
+
+}
+.btn-min{
+	 background: url(../../images/webqq/sprite_main_png.png) no-repeat -7px -59px;
+}
+.btn-min:hover{
+	background: url(../../images/webqq/sprite_main_png.png) no-repeat -7px -31px;
+	cursor: pointer;
+}
+.btn-max{
+	background: url(../../images/webqq/sprite_main_png.png) no-repeat -36px -59px;
+}
+.btn-max:hover{
+	background: url(../../images/webqq/sprite_main_png.png) no-repeat -36px -31px;
+	cursor: pointer;
+}
+.btn-close{
+	background: url(../../images/webqq/sprite_main_png.png) no-repeat -64px -59px;
+}
+.btn-close:hover{
+	background: url(../../images/webqq/sprite_main_png.png) no-repeat -64px -31px;
+	cursor: pointer;
+}
+#bottombar-bg{
+	height: 130px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/*background: url(./images/task/bg_task_main.png) repeat-x;*/
+}
+#bottom-task-bg{
+	height: 64px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/*background: url(./images/task/bg_task_b.png) repeat-x 0 41px;*/
+}
+.task{
+	width: 112px;
+	height: 100%;
+	margin: 0 1px;
+	float: left;
+	display: block;
+	padding-top: 15px;
+	background: url(../../images/webqq/bg_task_cur.png) no-repeat;
+}
+.task:hover{
+	background: url(../../images/webqq/bg_task_over.png) no-repeat;
+}
+.task-icon{
+	width: 32px;
+	height: 32px;
+}
+.task-title{
+	color: #fff;
+}
+#bottombar{
+	height: 64px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.iframe{
+	width: 95%;
+	height: 400px;
+}

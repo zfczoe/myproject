@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>聊天室</title>
+</head>
+<style>
+	h1{
+		font-family: Arial;
+		font-weight: bold;
+		font-size: 14pt;
+		color: #006bb5;
+		background-color: #fff;
+		border-radius: 5px;
+		border: 1px solid red;
+		padding: 5px;
+		margin: 0 0 18px 0;
+	}
+	div[id^=divContainer]{
+		border: 0;
+		margin-top: 10px;
+		padding: 3px;
+		background-color: #f0f0f0;
+		border-radius: 5px;
+	}
+	div#divLeft{
+		width: 85%;
+		background-color: #f0f0f0;
+		float: left;
+	}
+	div#divRight{
+		width: 15%;
+		background-color: white;
+		float: right;
+		font-weight: bold;
+		font-size: 12px;
+	}
+	div#divChat{
+		border: 0;
+		position: relative;
+		height: 300px;
+		overflow: auto;
+		font-size: 12px;
+	}
+	textarea{
+		width: 100%;
+	}
+	input[type='button']{
+		width: 100%;
+	}
+	input[type='button']:hover{
+		margin: 1px;
+		background-color: #006bb5;
+	}
+
+</style>
+
+<body onunload='window_onunload();'>
+	<h1>聊天室</h1>
+	<div id="divContainer1">
+		<input type="text" id='tbxUsername' value='游客', size='20'>
+		<input type="button" id='btnLogin' value='登陆' style='width:80px;'>
+		<input type="button" id='btnLogout' value='推出' disabled style='width:80px;'>
+	</div>
+	<div id="divLeft">
+		<div id="divChat"></div>
+		<div id="divContainer3">
+			对话：
+			<textarea name="" id="tbxMsg" cols="255" rows="5" style='width:100%'></textarea>
+			<input type="button" id='btnSend' value='发送' disabled  style='width:80px;'>
+		</div>
+	</div>
+	<div id="divRight">用户列表</div>
+</body>
+<script src='/javascripts/jquery-1.10.2.min.js'></script>
+<script src='/socket.io/socket.io.js'></script>
+<script>
+$(function(){
+	var userName, socket, tbxUsername, tbxMsg, divChat;
+	divChat = document.getElementById('divChat');
+	tbxUsername = document.getElementById('tbxUsername');
+	tbxMsg = document.getElementById('tbxMsg');
+	tbxUsername.focus();
+	tbxUsername.select();
+	$('#btnLogin').on('click',function(){
+		if(tbxUsername.value.trim() == ''){
+			alert('请输入用户名');
+			return;
+		}
+		userName = tbxUsername.value.trim();
+		socket = io.connect();
+		socket.on('connect', function(){
+			AddMsg('与聊天服务器的链接已建立');
+			socket.on('login', function(name){
+				AddMsg('欢迎用户' + name + '进入聊天室');
+			});
+			socket.on('sendClients', function(names){
+				var divRight = document.getElementById('divRight');
+				var str = '';
+				names.forEach(function(name){
+					str += name + '<br>';
+				});
+				divRight.innerHTML = '用户列表<br/>' + str;
+			});
+			socket.on('chat', function(data){
+				AddMsg(data.user + '说：' + data.msg);
+			});
+			socket.on('disconnect', function(){
+				AddMsg('与聊天服务器的链接已建立');
+				document.getElementById('btnSend').disabled = true;
+				document.getElementById('btnLogout').disabled = true;
+				document.getElementById('btnLogin').disabled = '';
+				var divRight = document.getElementById('divRight');
+				divRight.innerHTML = '用户列表';
+			});
+			socket.on('logout', function(name){
+				AddMsg('用户' + name + '已退出聊天室');
+			});
+			socket.on('duplicate', function(){
+				alert('改用户名已被使用');
+				document.getElementById('btnSend').disabled = true;
+				document.getElementById('btnLogout').disabled = true;
+				document.getElementById('btnLogin').disabled = '';
+			});
+		});
+		socket.on('error', function(err){
+			AddMsg('与服务器的链接发生错误');
+			socket.disconnect();
+			socket.removeAllListeners('connect');
+			io.socket = {};
+		});
+		socket.emit('login', userName);
+		document.getElementById('btnSend').disabled = '';
+		document.getElementById('btnLogout').disabled = '';
+		document.getElementById('btnLogin').disabled = true;
+	})
+
+	$('#btnLogout').on('click', function(){
+		socket.emit('logout', userName);
+		socket.disconnect();
+		socket.removeAllListeners('connect');
+		io.socket = {};
+		AddMsg('用户' + userName + '退出聊天室');
+		var divRight = document.getElementById('divRight');
+		divRight.innerHTML = '用户列表';
+		document.getElementById('btnSend').disabled = 'disabled';
+		document.getElementById('btnLogout').disabled = 'disabled';
+		document.getElementById('btnLogin').disabled = '';
+	})
+	$('#btnSend').on('click', function(){
+		var msg = tbxMsg.value;
+		if(msg.length > 0){
+			socket.emit('chat', {user: userName, msg: msg});
+			tbxMsg.value = '';
+		}
+	})
+	function AddMsg(msg){
+		divChat.innerHTML += msg + '<div>';
+		if( divChat.scrollHeight > divChat.clientHeight){
+			divChat.scrollTop = divChat.scrollHeight - divChat.clientHeight;
+		}
+	}
+	// function btnLogin_onclick(){
+	// 	if(tbxUsername.value.trim() == ''){
+	// 		alert('请输入用户名');
+	// 		return;
+	// 	}
+	// 	userName = tbxUsername.value.trim();
+	// 	socket = io.connect();
+	// 	socket.on('connect', function(){
+	// 		AddMsg('与聊天服务器的链接已建立');
+	// 		socket.on('login', function(name){
+	// 			AddMsg('欢迎用户' + name + '进入聊天室');
+	// 		});
+	// 		socket.on('sendClients', function(names){
+	// 			var divRight = document.getElementById('divRight');
+	// 			var str = '';
+	// 			names.forEach(function(name){
+	// 				str += name + '<br>';
+	// 			});
+	// 			divRight.innerHTML = '用户列表<br/>' + str;
+	// 		});
+	// 		socket.on('chat', function(data){
+	// 			AddMsg(data.user + '说：' + data.msg);
+	// 		});
+	// 		socket.on('disconnect', function(){
+	// 			AddMsg('与聊天服务器的链接已建立');
+	// 			document.getElementById('btnSend').disabled = true;
+	// 			document.getElementById('btnLogout').disabled = true;
+	// 			document.getElementById('btnLogin').disabled = '';
+	// 			var divRight = document.getElementById('divRight');
+	// 			divRight.innerHTML = '用户列表';
+	// 		});
+	// 		socket.on('logout', function(name){
+	// 			AddMsg('用户' + name + '已退出聊天室');
+	// 		});
+	// 		socket.on('duplicate', function(){
+	// 			alert('改用户名已被使用');
+	// 			document.getElementById('btnSend').disabled = true;
+	// 			document.getElementById('btnLogout').disabled = true;
+	// 			document.getElementById('btnLogin').disabled = '';
+	// 		});
+	// 	});
+	// 	socket.on('error', function(err){
+	// 		AddMsg('与服务器的链接发生错误');
+	// 		socket.disconnect();
+	// 		socket.removeAllListeners('connect');
+	// 		io.socket = {};
+	// 	});
+	// 	socket.emit('login', userName);
+	// 	document.getElementById('btnSend').disabled = '';
+	// 	document.getElementById('btnLogout').disabled = '';
+	// 	document.getElementById('btnLogin').disabled = true;
+	// }
+	// function btnSend_onclick(){
+	// 	var msg = tbxMsg.value;
+	// 	if(msg.length > 0){
+	// 		socket.emit('chat', {user: userName, msg: msg});
+	// 		tbxMsg.value = '';
+	// 	}
+	// }
+	// function btnLogout_onclick(){
+	// 	socket.emit('logout', userName);
+	// 	socket.disconnect();
+	// 	socket.removeAllListeners('connect');
+	// 	io.socket = {};
+	// 	AddMsg('用户' + userName + '退出聊天室');
+	// 	var divRight = document.getElementById('divRight');
+	// 	divRight.innerHTML = '用户列表';
+	// 	document.getElementById('btnSend').disabled = 'disabled';
+	// 	document.getElementById('btnLogout').disabled = 'disabled';
+	// 	document.getElementById('btnLogin').disabled = '';
+	// }
+	function window_onunload(){
+		socket.emit('logout', userName);
+		socket.disconnect();
+	}
+}
+);
+	
+	
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+     <div id="nav">
+        <ul class='navbar'>
+            <li class='index'><a href="/">首页</a></li>
+            <li class='enjoy'><a href="/enjoy">欣赏特效</a></li>
+            <li class='enjoyBlog'><a href="/enjoyBlog">欣赏博文</a></li>
+            <li><a href="/toHarbin">美丽冰城</a></li>
+            <li><a href="/link">相关链接</a></li>
+            <li><a href="/toWebqq">WebQQ</a></li>
+            <li><a href="/chatRoom">畅想聊天室</a></li>
+            <% 
+                if(loginUser==null){
+                    %>
+                        
+                        <li><a href="/login">登陆</a></li>
+                        <li><a href="/reg">注册</a></li>
+                    <%
+                }else{
+                    %>
+                    <li class='myBlog'><a href="/toblog">我的博客</a></li>
+                    <li class='username'><a href=""><%= loginUser.username %></a>
+                    <div class='loginUser'>
+                        <span><a href="/personCenterBasic">个人中心</a></span>
+                        <span><a href="/userExit">退出</a></span>
+                    </div>
+                    </li>
+                    <%
+                }
+
+            %>
+        </ul>
+        <span class='overTrue'>></span>
+    </div>
+</body>
+</html>

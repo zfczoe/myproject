@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title><%= title %></title>
+    <link rel='icon' href='/images/img/favicon.ico' mce_href='/images/img/favicon.ico' type='image/x-icon'>
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/blog.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+</head>
+<body>
+   <% include headTop.ejs %>
+   <% include nav.ejs %>
+    <div id="blog_header">
+    <% 
+        if(flag==null){
+            %>
+            <a href="">
+                天下博文
+            </a>
+            <%
+        }else{
+            %>
+            <a href="">
+                <%= user.username %>的文章
+            </a>
+            <%
+        }
+
+    %>
+    
+    <div class="weather">
+        <iframe name="weather_inc" src="http://tianqi.xixik.com/cframe/8"  width="225" height="80" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    </div>
+    <span id="timeOver">
+        
+    </span>
+    <span id="time"></span>
+    </div>
+    <div id="container_blog">
+        <% include blog_right.ejs %>
+        <div class="left_blog">
+            <div class="content">
+            <% for(var i=0; i< posts.length; i++){%>
+            <div class="article">
+                <h2><a href="/readMore?blogId=<%= posts[i].title %>" class='titleq'><%= posts[i].title%></a></h2>
+                <small>
+                    <span><%= posts[i].addTime%></span> by <a href="/toAuthor?author=<%= posts[i].author.username%>"><span><%= posts[i].author.username%></span></a>
+                    阅读<%= posts[i].readCount %>次，今日6次
+                </small><br>
+                <p class='p'><%= posts[i].content %></p><br>
+                <p><a href="/readMore?blogId=<%= posts[i].title %>"><strong>阅读全文...</strong></a></p>
+                <%
+                    if(isMyBlog){
+                        %>
+                            <a href="/removeBlog?blogId=<%= posts[i].title %>"class='deleteBlog'>删除</a>
+                        <%
+                    }
+                %>
+            </div>
+            
+            <%}%>
+            </div>
+            <br />
+            <div>
+              <% if(flagfenlei){
+                if(page-1){ %>
+                <span class="lastpage"><a title="上一页" href="?p=<%= page-1 %>&blogSort=dddd&user=zhangfang">上一页</a></span>
+              <% } %>
+             
+              <% if(postsLen==10){ %>
+                <span class="nextpage"><a title="下一页" href="?p=<%= page+1 %>&blogSort=dddd&user=zhangfang">下一页</a></span>
+              <% }}else{
+                if(page-1){ %>
+                <span class="lastpage"><a title="上一页" href="?p=<%= page-1 %>&blogSort=dddd&user=zhangfang">上一页</a></span>
+              <% } %>
+             
+              <% if(postsLen==10){ %>
+                <span class="nextpage"><a title="下一页" href="?p=<%= page+1 %>&blogSort=dddd&user=zhangfang">下一页</a></span>
+              <% }}%>
+            </div>
+        </div>  
+       
+    </div> <!--  #container_blog -->
+    <div class="leftBottom">
+        <span><iframe name="weather_inc" src="http://tianqi.xixik.com/cframe/2" width="530" height="70" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></span>
+    </div>
+     <% include footer.ejs %>
+    <script src="/javascripts/seajs/sea.js" 
+                data-config="/javascripts/seajs-config.js" 
+                data-main="/javascripts/blog.js" >
+    </script>
+</body>
+</html>

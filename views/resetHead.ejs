@@ -1,0 +1,264 @@
+
+<style>
+    .upload_item{ width: 50px; height: 45px; overflow: hidden;border: 2px dashed #bfbfbf; float: left;margin-right: 10px;}
+    .upload_item_add{  width: 50px; height: 45px; display: block; line-height: 42px; text-align: center; font-size: 30px; cursor: pointer;}
+    .upload_input{ }
+</style>
+<script>
+    var add = {
+        upload_click:function(obj){
+            $(obj).parent().children().eq(1).click();
+        },
+        upload_change:function(obj){
+            var path;
+            path=$(obj).val();      //c:\documents and settings\hud\桌面\addfile.jpg
+            var aa;
+            aa=path.split('.');
+            //alert(aa[aa.length-1]);  //jpg 结果
+            var name;
+            name=path.split('\\'); 
+            var bb=name[name.length-1];             
+            //alert(bb.substr(0,bb.indexof('.')));  //addfile 结果
+            $(obj).parent().children().eq(0).css('fontsize','12px');
+            $(obj).parent().css('borderstyle','solid');
+            $(obj).parent().children().eq(0).html(bb.substr(0,bb.indexof('.')));
+            if($(obj).parent().attr('index')==1){//新增
+                var html = '<div class=upload_item index=1><span class=upload_item_add onclick=add.upload_click(this)>+</span><input type=file name=pics id=pics class=upload_input onchange=add.upload_change(this) /></div>';
+                $('#upload_box').append(html);
+                $(obj).parent().attr('index','0');
+            }
+        }
+     };
+</script>
+<form method='post' action='/set' enctype='multipart/form-data'>
+    <table>
+        <tr>
+            <td>经度：</td><td><input type=text name=x id=x /></td>
+        </tr>
+        <tr>
+            <td>维度：</td><td><input type=text name=y id=y /></td>
+        </tr>
+        <tr>
+            <td>分类：</td><td><select name=cat_id><option value=1>分类1</option></select></td>
+        </tr>
+        <tr>
+            <td>地址：</td><td><input type=text name=address id=address /></td>
+        </tr>
+        <tr>
+            <td>标题：</td><td><input type=text name=title id=title /></td>
+        </tr>
+        <tr>
+            <td>简介：</td><td><input type=text name=desc id=desc /></td>
+        </tr>
+        <tr>
+            <td>内容：</td><td><input type=text name=content id=content /></td>
+        </tr>
+        <tr>
+            <td>图片：</td><td id=upload_box><div class=upload_item index=0 style=display:none;><span class=upload_item_add onclick=add.upload_click(this)>+</span><input type=file name=pics id=pics class=upload_input onchange=add.upload_change(this) /></div><div class=upload_item index=1><span class=upload_item_add onclick=add.upload_click(this)>+</span><input type=file name=pics id=pics class=upload_input onchange=add.upload_change(this) /></div></td>
+        </tr>
+        <tr>
+            <td>价格：</td><td><input type=text name=price id=price /></td>
+        </tr>
+        <tr>
+            <td>标签：</td><td><input type=text name=tags id=tags /></td>
+        </tr>
+        <tr>
+            <td colspan=2><input type=submit value=提交 /></td>
+        </tr>
+    </table>
+</form>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='icon' href='/images/img/favicon.ico' mce_href='/images/img/favicon.ico' type='image/x-icon'>
+    <link rel="stylesheet" type="text/css" href="/javascripts/resetHead/css/main.css" />
+    <link rel="stylesheet" href="/stylesheets/base.css">
+  <link href="/javascripts/resetHead/css/jquery-ui-1.7.2.custom.css" rel="Stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/resetHead.css" />
+  <link rel="stylesheet" href="/stylesheets/footer.css">
+  <script type="text/javascript" src="/javascripts/resetHead/js/jquery.js"></script>
+  <script type="text/javascript" src="/javascripts/resetHead/js/jquery-ui-1.8.custom.min.js"></script>
+  <script type="text/javascript" src="/javascripts/resetHead/js/jquery.cropzoom.js"></script>
+
+</head>
+<body>
+  <% include headTop.ejs %>
+    <% include nav.ejs %>
+    <div id="main">
+ 
+  <div class="crop">
+     <div id="cropzoom_container"></div>
+     <div id="preview">
+          <div class="ps-image" style="background-image:url('/images/u=2248152871,4074441332&fm=21&gp=0.jpg'); width:100%; height:100%;"  >
+       <input type="file" id="file" onchange="onselectimage()"/> 
+          </div> 
+     </div>
+
+     <div class="page_btn">
+        <input type="button" class="btn" id="crop" value="剪切照片" />
+           
+        <input type="button" class="btn" id="restore" value="照片复位" />
+<!--         <input type="text" style='display:none' name='displayValue' id='displayValue' value='sfsd'> -->
+     </div>
+     <div class="clear"></div>
+  </div>
+  </div>
+  <% include footer.ejs %>
+  <script src="/javascripts/seajs/sea.js" 
+                data-config="/javascripts/seajs-config.js" 
+                data-main="/javascripts/resetHead.js" >
+    </script>
+</body>
+<script  type="text/javascript">
+
+  $(function() {
+
+       var cropzoom = $('#cropzoom_container').cropzoom({
+            width: 500,
+            height: 360,
+            bgColor: '#ccc',
+            enableRotation: true,
+            enableZoom: true,
+            selector: {
+           w:150,
+           h:200,
+           showPositionsOnDrag:true,
+           showDimetionsOnDrag:false,
+                 centered: true,
+           bgInfoLayer:'#fff',
+                 borderColor: 'blue',
+           animated: false,
+           maxWidth:150,
+           maxHeight:200,
+                 borderColorHover: 'yellow'
+             },
+             image: {
+                 source: 'http://www.js-css.cn/jscode/focus/focus19/images/b2.jpg',
+                 width: 450,
+                 height: 300,
+                 minZoom: 30,
+                 maxZoom: 150
+              }
+        });
+     $("#crop").click(function(){
+        cropzoom.send('resize_and_crop.php', 'POST', {}, function(imgRet) {
+                 $("#generated").attr("src", imgRet);
+            });        
+     });
+     $("#restore").click(function(){
+        $("#generated").attr("src", "/stylesheets/resetHead/tmp/head.gif");
+        cropzoom.restore();           
+     });
+
+
+
+
+
+  });
+  //选择文件之后直接上传  
+
+  function onselectimage() {  
+
+
+
+
+      // var file = $("#file").val();
+      // alert(file);
+      // var fileName = getFileName(file);
+      // var filenode = document.getElementById("file");
+      // filenode.parentNode.style.backgroundImage = "url('" + file + "')";
+      // function getFileName(o){
+      //   var pos = o.lastIndexOf('\\');
+      //   return o.substring(pos+1);
+      //  }
+
+
+
+    
+     var xmlHttpReq = null;  
+
+     //IE浏览器使用ActiveX  
+
+     if (window.ActiveXObject) {  
+
+         xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");  
+
+     }  
+
+     //其它浏览器使用window的子对象XMLHttpRequest  
+
+     else if (window.XMLHttpRequest) {  
+
+         xmlHttpReq = new XMLHttpRequest();  
+
+     }  
+
+     var filenode = document.getElementById("file");  
+    var fileName = document.getElementById("fileName");
+
+   
+
+   
+
+     if (xmlHttpReq != null) {  
+
+         //设置回调，当请求的状态发生变化时，就会被调用  
+
+         xmlHttpReq.onreadystatechange = function () {  
+
+             //等待上传结果  
+
+             if (xmlHttpReq.readyState == 1) {  
+
+                 filenode.parentNode.style.backgroundImage = "url('/images/u=3832458301,3952266236&fm=21&gp=0.jpg')";  
+
+             }  
+
+             //上传成功，返回的文件名，设置到div的背景中  
+
+             if (xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200) {  
+                
+                 filenode.parentNode.style.backgroundImage = "url('/uploads/photo/" + xmlHttpReq.responseText + "')"; 
+                 // $('#displayValue').text("/uploads/" + xmlHttpReq.responseText);
+
+                 //  alert($('input[name="displayValue"]').text());
+             }  
+
+         }  
+
+         //构造form数据  
+
+         var form = new FormData();  
+
+         form.append("file", filenode.files[0]);  
+         // form.append("displayValue", $('input[name="displayValue"]'));
+   
+
+   
+
+         //设置请求（没有真正打开），true：表示异步  
+
+         xmlHttpReq.open("POST", "/uploadHead", true);  
+
+         //不要缓存  
+
+         //xmlHttpReq.setRequestHeader("If-Modified-Since", "0");  
+
+         //提交请求  
+
+         xmlHttpReq.send(form);  
+
+         //清除掉，否则下一次选择同样的文件就进入不到onchange函数中了  
+
+         filenode.value = null;  
+
+     }  
+
+  }  
+
+</script>
+
+</html>

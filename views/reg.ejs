@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if IE 7]>                  <html class="ie7 no-js" lang="en">     <![endif]-->
+<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="not-ie no-js" lang="en">  <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+	================================================== -->
+	<meta charset="utf-8">
+	<title><%= title %></title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<!-- Mobile Specific Metas
+	================================================== -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+
+	<!-- CSS
+	================================================== -->
+	<!-- Base + Vendors CSS -->
+	<link rel='icon' href='/images/img/favicon.ico' mce_href='/images/img/favicon.ico' type='image/x-icon'>
+	<link rel="stylesheet" href="/stylesheets/bootstrap.css">
+	<link rel="stylesheet" href="/stylesheets/reg.css">
+
+	<!-- Head Libs -->
+	<script src="/javascripts/modernizr-2.6.2.min.js"></script>
+	
+</head>
+<body>
+	<div class="container">
+		<div class="logo">
+			<h1>你好</h1>
+		</div>
+		<div>
+			<h2>欢迎加入我们</h2><%= error %>
+			<div class="row">
+				<div class="span6">
+					<form id="myform" class="form-horizontal" method="post" action='/reg'>
+						 <div class="control-group">
+					    <label class="control-label" for="inputPassword">用户名</label>
+					    <div class="controls">
+					      <input type="text" id="inputUsername" class="required" name="username" placeholder=""><span class="noReg"></span>
+					      <p style='font-size:12px;height:0px;color:#ccc;'><span style='color:red;'>注意：</span>中文、英文、数字、下划线、4-16个字符</p>
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label" for="inputEmail">邮箱</label>
+					    <div class="controls">
+					      <input type="text" id="inputEmail" class="required email error" name="email" placeholder="请输入正确的邮箱">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label" for="inputPassword" >密码</label>
+					    <div class="controls">
+					      <input type="password" id="inputPassword" class="required" name="password" placeholder="长度为6-16个字符">
+					    </div>
+					  </div>
+					    <div class="control-group">
+				        <label class="control-label" for="password-repeat">重复口令</label> <div class="controls">
+				        <input type="password" class="required" id="repassword" name="repassword" placeholder="请输入和上面相同的密码">
+				          </div>
+				        </div>
+				        <div class="control-group show_error">
+				       		<span class='show_error'></span>
+				        </div>
+					  <div class="control-group">
+					    <div class="controls">
+					      <label class="checkbox">
+					        <input type="checkbox">我已经认真阅读并同意---的《使用协议》。
+					      </label>
+					      <button type="submit" class="btn btn-success">注册</button>
+					    </div>
+					  </div>
+					</form>
+				</div>
+				<div class="span6">&gt; 已经有了账号？立即<a href="/login">登陆</a></div>
+			
+			</div>
+		</div>
+	</div>
+		<script src="/javascripts/seajs/sea.js" 
+	    			data-config="/javascripts/seajs-config.js" 
+	    			data-main="/javascripts/reg.js" >
+		</script>
+</body>
+</html>

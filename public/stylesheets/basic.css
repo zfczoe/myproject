@@ -1,0 +1,46 @@
+.noteBox{
+	width: 60%;
+	margin: 0 auto;
+	padding: 20px;
+	font-size: 12px;
+	color: #999;
+	border: 1px solid #ECECEC;
+	background: #F5F5F5;
+}
+.noteBox span,.rightForm table tbody tr th span{
+	font-size: 15px;
+	color: red;
+}
+.rightForm{
+	width: 60%;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+.rightForm table tbody tr{
+	line-height: 3em;
+
+}
+.rightForm table tbody tr th{
+	width: 100px;
+	padding-right: 15px;
+	font-size: 14px;
+	text-align: right;
+}
+.rightForm table tbody tr td input{
+	
+}
+.t{
+	color: #fff;
+	width: 50px;
+	height: 30px;
+	border-radius: 3px;
+	border-color: #288FC9;
+	background-color: #43ABDC;
+}
+.quxiao{
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	border-color: #CFCFCF;
+	background-color: #7191F5;
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="right_blog">
+        <div class="right_head right_together">
+            
+            <% 
+            if(loginUser==null){
+                %>
+                <img src="<%= (user==null ? "" : user.headurl) %>" alt="" class="head_img">
+                <%
+            }else{
+                if(user.username != loginUser.username){
+                    %>
+                        <img src="<%= (user==null ? "" : user.headurl) %>" alt="" class="head_img">
+                    <%
+                }else{
+                    %>
+
+                    <a href="/personCenterBasic"><img src="<%= (user==null ? "" : user.headurl) %>" alt="" class="head_img"></a>
+                    <%
+                }
+            } %>
+            <p class="person_introduce">
+               <%= loginUser.username %> <br>
+               <%= loginUser.personInfo %>
+            </p>
+        </div>
+        <div class="articlesort right_together">
+            <h2>文章分类</h2>
+            <ul>
+             <% for(var i=0; i< sorts.length; i++){%>
+                <a href="/oneSort?blogSort=<%= sorts[i].sortName %>&user=<%= sorts[i].user.username %>"><li><%= sorts[i].sortName %></li></a>
+             <% } %>
+            </ul>
+        </div>   <!-- .articlesort -->
+        <div class="articlesort right_together">
+            <h2>最新文章</h2>
+            <ul>
+                <% for(var i=0; i< postsNew.length; i++){%>
+                    <li><a href="/readMore?blogId=<%= postsNew[i].title %>"><%= postsNew[i].title %></a>(阅读<%= postsNew[i].readCount%>次)</li>
+                 <% } %>
+            </ul>
+        </div>   <!-- .articlesort -->
+        <div class="aboutMe">
+            <ul>
+                <li>新浪微博</li>
+                <li>>>腾讯微博</li>
+                <li>QQ空间</li>
+                <li>人人主页</li>
+                <li class='myWeixin'>我的微信</li>
+            </ul>
+        </div>   <!-- .articlesort -->
+    </div>   <!-- .right_blog -->
+</body>
+</html>

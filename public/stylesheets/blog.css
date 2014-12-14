@@ -1,0 +1,226 @@
+/*body{
+	background-color: #eee;
+}*/
+#nav{
+	/*margin-top: 3%;*/
+}
+#blog_header{
+	font-size: 22px;
+	height: 100px;
+	border-bottom: 3px solid #beceeb;
+	position: relative;
+}
+#blog_header a{
+	position: absolute;
+	margin-left: 15%;
+	line-height: 100px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+}
+#blog_header a:hover{
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+}
+#timeOver{
+	float: right;
+	font-size: 12px;
+	font-family: 'Microsoft YaHei';
+	width: 200px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+#time{
+	float: right;
+	font-size: 12px;
+	font-family: 'Microsoft YaHei';
+	width: 200px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.weather{
+	float: right;
+	margin-top: 8px;
+	margin-right: 20px;
+}
+#container_blog{
+	margin: 1%;
+}
+#container_blog .right_blog .right_head{
+	height: 130px;
+}
+#container_blog .right_blog .right_head img{
+	width: 100px;
+	height: 120px;
+	border-radius: 3px;
+	float: left;
+}
+#container_blog .right_blog .right_head .person_introduce{
+	float: right;
+	width: 60%;
+	font-size: 12px;
+}
+#container_blog .left_blog{
+	/*height: 300px;*/
+	/*background-color: gray;*/
+	margin-right: 310px;
+	padding: 2%;
+	border-right: 6px solid #beceeb;
+}
+#container_blog .right_blog{
+	width: 300px;
+	float: right;
+}
+.right_together{
+	padding: 5%;
+	border: 3px solid #beceeb;
+	margin-bottom: 1%;
+}
+.right_together h2{
+	font-size: 1.14em;
+	border-bottom: 1px dashed #beceeb;
+}
+.right_together ul{
+	padding: 3px;
+}
+.right_together li{
+	font-size: 13px;
+	letter-spacing: 1px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.articlesort{
+	
+}
+
+.article{
+	margin-bottom: 10px;
+	padding: 15px 10px;
+	-webkit-transition: all 1.5s ease;
+	-moz-transition: all 1.5s ease;
+	-ms-transition: all 1.5s ease;
+	-o-transition: all 1.5s ease;
+	position: relative;
+}
+.article:hover{
+	/*background-color: #ccc;*/
+	/*opacity: 0.5；*/
+}
+.article h2{
+	font-size: 1.3em;
+	color: #34538b;
+	height: 25px;
+}
+.article h2 a{
+	word-wrap: break-word;
+	position: absolute;
+	letter-spacing: 1px;
+	-webkit-transition: all 0.6s ease-in-out;
+	-ms-transition: all 0.6s ease-in-out;
+	-moz-transition: all 0.6s ease-in-out;
+	-o-transition: all 0.6s ease-in-out;
+}
+.article h2 a:hover{
+	transform: translate(30px);
+	-ms-transform: translate(30px);		/* IE 9 */
+	-webkit-transform: translate(30px);	/* Safari and Chrome */
+	-o-transform: translate(30px);		/* Opera */
+	-moz-transform: translate(30px);
+}
+.article small{
+	font-family: Arial, Sans-Serif;
+	font-size: 0.88em;
+	line-height: 1.5em;
+	color: #777;
+	padding-left: 30px;
+}
+.article .p{
+	font-size: 14px;
+	margin-top: 10px;
+	line-height: 1.5;
+	word-wrap: break-word;
+	color: #666;
+	letter-spacing: 1px;
+	font-family: "微软雅黑";
+}
+.deleteBlog{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding: 5px;
+	border-radius: 5px;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+}
+.deleteBlog:hover{
+	color: #fff;
+	background-color: gray;
+}
+.titleq:hover{
+	text-decoration: none;
+	color: rgb(119, 211, 107);
+}
+
+
+.lastpage a{float:left;text-decoration:none;padding:.5em 1em;color:#ff0000;font-weight:bold;}
+.nextpage a{float:right;text-decoration:none;padding:.5em 1em;color:#ff0000;font-weight:bold;}
+.lastpage a:hover,.nextpage a:hover{text-decoration:none;background-color:#B3AEAE;color:#f9f9f9;-webkit-transition:color .2s linear;border-radius: 5px;}
+.aboutMe{
+	background-color: rgba(6, 32, 42, 0.8);
+}
+.aboutMe li{
+	background-color: rgba(6, 32, 42, 0.8);
+	color: rgb(146, 158, 172);
+	width: 130px;
+	height: 30px;
+	float: left;
+	margin: 10px 10px;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 12px;
+}
+.aboutMe li:hover{
+	color: rgba(245, 255, 0, 0.8);
+}
+.navbar .enjoyBlog{
+	background-color: #292929;
+	border-radius: 50px;
+}
+.navbar .enjoyBlog a{
+	color: #F90;
+}
+.navbar .myBlog{
+	background-color: #292929;
+	border-radius: 50px;
+}
+.navbar .myBlog a{
+	color: #F90;
+}
+
+
+.leftBottom{
+position: fixed;
+left: -550px;
+bottom: 0;
+padding: 10px;
+-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-ms-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+}
+.leftBottom:hover{
+left: 0;
+}
+.leftBottom{
+width: 550px;
+height: 100px;
+/*opacity: 0.5;*/
+background-color: rgb(129, 119, 221);
+}
